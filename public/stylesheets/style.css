@@ -34,3 +34,12 @@ form > div {
 form label {
   display: block;
 }
+
+main {
+  padding: 2% 4%;
+}
+
+#post-content-textarea {
+  width: 400px;
+  height: 200px;
+}
