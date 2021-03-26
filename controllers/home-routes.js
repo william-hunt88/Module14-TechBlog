@@ -20,6 +20,7 @@ router.get("/", (req, res) => {
     ],
   }).then((dbPostData) => {
     const posts = dbPostData.map((post) => post.get({ plain: true }));
+    console.log(posts)
 
     if (req.session.loggedIn) {
       res.render("homepage", {
@@ -42,9 +43,38 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/dashboard", (req, res) => {
-  res.render("dashboard", {
-    layout: "dashboard",
+router.get("/", (req, res) => {
+  Post.findAll({
+    attributes: ["id", "title", "content", "created_at"],
+    include: [
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  }).then((dbPostData) => {
+    const posts = dbPostData.map((post) => post.get({ plain: true }));
+    console.log(posts)
+  
+
+    if (req.session.loggedIn) {
+      res.render("dashboard", {
+        posts,
+        layout: "dashboard",
+      });
+    } else {
+      res.render("homepage", {
+        posts,
+      });
+    }
   });
 });
 

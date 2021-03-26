@@ -1,9 +1,8 @@
 const router = require("express").Router();
-const { User, Post } = require("../models");
-
+const { User, Post, Comment } = require("../models");
+const sequelize = require("../config/connection");
 
 router.get("/", (req, res) => {
-  console.log(req.session.user_id)
   Post.findAll({
     where: {
       // use the ID from the session
@@ -31,11 +30,12 @@ router.get("/", (req, res) => {
     ],
   })
     .then((dbPostData) => {
-      console.log(dbPostData)
       // serialize data before passing to template
       const posts = dbPostData.map((post) => post.get({ plain: true }));
-      console.log(posts)
-      res.render("dashboard", { posts, loggedIn: true });
+      res.render("dashboard", {
+        posts,
+        layout: "dashboard",
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -43,7 +43,16 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/edit/:id", withAuth, (req, res) => {
+// router.get("/", (req, res) => {
+//   console.log(req.session)
+//   Post.findAll({
+//     where: {
+//       user_id: req.session.user_id
+//     }
+//   }).then((dbPostData) => res.json(dbPostData))
+// })
+
+router.get("/edit/:id", (req, res) => {
   Post.findByPk(req.params.id, {
     attributes: ["id", "title", "content", "created_at"],
     include: [
