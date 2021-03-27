@@ -1,26 +1,31 @@
-<form class="create-post-form">
+<div class = "btn-wrap">
+    <button class='add-post-btn big ui gray button'>Add a new Post</button>
+</div>
+<form id="add-post-form" class = "ui form">
     <div>
-        <label for="post-title-input">Title:</label>
-        <input type="text" id="post-title-input">
+        <label for='post-title-input'>Title:</label>
+        <input type='text' id='post-title-input'>
     </div>
     <div>
-        <label for="post-content-textarea">Title:</label>
-        <textarea type="text" id="post-content-textarea"></textarea>
+        <label for='post-content-textarea'>Title:</label>
+        <textarea type='text' id='post-content-textarea'></textarea>
     </div>
     <div>
-        <button type="submit">Submit</button>
+        <button type='submit' class = "ui button">Submit</button>
     </div>
+    <script src='/javascript/createPost.js'></script>
 </form>
-<script src="/javascript/createPost.js"></script>
 
 <section>
     <h2>Your Posts</h2>
-    <ol>
+    <ul class="post-list" style="list-style-type:none">
         {{#each posts as |post|}}
         <li>
             {{> post-info post}}
-            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+            <a href='/dashboard/edit/{{post.id}}' class='edit-link'>Edit post</a>
         </li>
         {{/each}}
-    </ol>
+    </ul>
 </section>
+<script src="/javascript/logout.js"></script>
+<script src='/javascript/dashboard.js'></script>

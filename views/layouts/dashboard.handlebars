@@ -5,27 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Its a Tech Blog</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
     <link rel="stylesheet" href="/stylesheets/style.css">
+
 </head>
 
 <body>
     <header>
-        <h1>
-            <a href="/">It a Tech Blog!</a>
-        </h1>
         <nav>
+            <a href="/">Home</a>
             <a href="/dashboard">dashboard</a>
             <button id="logout" class="btn-no-style">logout</button>
         </nav>
+        <h1>
+            <a href="/">It a Tech Blog!</a>
+        </h1>
     </header>
     <div class="wrapper">
-        <main>
+        <main class="body-main">
             {{{ body }}}
         </main>
         <footer>
             Thanks for visiting!
         </footer>
     </div>
-    <script src="/javascript/logout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="javascript/logout.js"></script>
 </body>
+
 </html>

@@ -1,19 +1,26 @@
-<ol class="post-list">
-  <li>
-    {{post.title}}
-    {{post.content}}
-  </li>
-</ol>
-{{#if loggedIn}}
-<form class="comment-form">
-    <div>
-        <textarea name="comment-body"></textarea>
-    </div>
+<ul class="post-list" style="list-style-type:none">
+  <div class="post">
+    <li>
+      <div class="post-top">
+        <span class = "post-title">{{post.title}}</span>
+      </div>
+      <div class="post-info">
+        {{post.content}}
+      </div>
+    </li>
 
-    <div>
-        <button type="submit">add comment</button>
-        <button type="button" class="upvote-btn">upvote</button>
-    </div>
+  </div>
+</ul>
+{{#if loggedIn}}
+<form class="ui form">
+  <div>
+    <textarea name="comment-body" rows="2"></textarea>
+  </div>
+
+  <div>
+    <button type="submit" class="ui button">add comment</button>
+    <button type="button" class="ui button">upvote</button>
+  </div>
 </form>
 {{/if}}
 {{> comments post.comments}}

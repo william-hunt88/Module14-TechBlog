@@ -3,10 +3,11 @@
   <h2>
     Edit Post
   </h2>
-  <form class="edit-post-form">
+  <form class="edit-post-form ui form">
     <div>
       <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{post.content}})</span>
+      <input name="post-content" type="text" value="{{post.content}}" />
+      
     </div>
     <div>
       {{post.created_at}}
@@ -31,4 +32,4 @@
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
-<script src="/javascript/comment.js"></script>
+    <script src="/javascript/logout.js"></script>
