@@ -43,13 +43,13 @@ async function loginFormHandler(event) {
         password,
       }),
       headers: { "Content-Type": "application/json" },
-    });
-
-    if (response.ok) {
-      document.location.replace("/dashboard");
-    } else {
-      alert(response.statusText);
-    }
+    }).then((response) => {
+      if (response.ok) {
+        document.location.replace("/dashboard");
+      } else {
+        alert(response.statusText);
+      }
+    })
   }
 }
 
