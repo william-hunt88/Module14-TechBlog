@@ -1,18 +1,22 @@
 <article class="post">
     <div class="post-top">
         <span class="post-title">
-            {{title}}
+            {{#if loggedIn}}
+            <a href="/post/{{id}}">{{title}} boobs </a>
+            {{else}}
+            <a href="/login">{{title}}</a>
+            {{/if}}
         </span>
-        <span class = "post-info">
+        <span class="post-info">
             posted by {{user.username}}
             on {{format_date created_at}}
         </span>
     </div>
     <div class="content-div">
         {{content}}
-
     </div>
     <div class="meta">
-        <a href="/post/{{id}}">{{comments.length}} {{comments.length}}</a>
+        <span>{{comments.length}} {{comments.length}}</span>
+
     </div>
 </article>

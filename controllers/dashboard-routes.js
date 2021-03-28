@@ -34,6 +34,7 @@ router.get("/", (req, res) => {
       const posts = dbPostData.map((post) => post.get({ plain: true }));
       res.render("dashboard", {
         posts,
+        loggedIn: req.session.loggedIn,
         layout: "dashboard",
       });
     })

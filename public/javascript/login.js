@@ -1,3 +1,8 @@
+const signUp = document.querySelector(".signup-form")
+const login = document.querySelector(".login-form")
+const registerBtn = document.querySelector(".register-btn")
+
+
 async function signUpFormHandler(event) {
   event.preventDefault();
 
@@ -18,7 +23,7 @@ async function signUpFormHandler(event) {
       console.log(response);
     });
 
-    if (response.ok) {
+    if (response) {
       console.log("success");
     } else {
       alert(response.statusText);
@@ -51,6 +56,13 @@ async function loginFormHandler(event) {
     }
   }
 }
+
+
+document.querySelector(".register-btn").addEventListener("click", function () {
+  signUp.style.display = "block";
+  login.style.display = "none";
+  registerBtn.style.display = "none"
+})
 
 document
   .querySelector(".signup-form")

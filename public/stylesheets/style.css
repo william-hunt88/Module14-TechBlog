@@ -4,6 +4,14 @@
   font-family: 'Lato', sans-serif;
 }
 
+nav a {
+  margin: 20px;
+}
+
+nav button {
+  margin: 20px;
+}
+
 header {
   background-color: #A9BEB8;
   border-bottom: 1px solid #ccc;
@@ -73,5 +81,8 @@ main {
   margin: 7.5px;
 }
 
+.signup-form {
+  display: none;
+}
 
 

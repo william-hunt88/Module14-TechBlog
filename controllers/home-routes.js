@@ -21,10 +21,12 @@ router.get("/", (req, res) => {
   }).then((dbPostData) => {
     const posts = dbPostData.map((post) => post.get({ plain: true }));
     console.log(posts)
+    console.log(req.session.loggedIn)
 
     if (req.session.loggedIn) {
       res.render("homepage", {
         posts,
+        loggedIn: req.session.loggedIn,
         layout: "dashboard",
       });
     } else {
