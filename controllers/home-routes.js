@@ -26,7 +26,7 @@ router.get("/", (req, res) => {
     if (req.session.loggedIn) {
       res.render("homepage", {
         posts,
-        loggedIn: true,
+        loggedIn: req.session.loggedIn,
         layout: "dashboard",
       });
     } else {
