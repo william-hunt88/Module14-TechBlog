@@ -20,14 +20,10 @@ async function signUpFormHandler(event) {
       }),
       headers: { "Content-Type": "application/json" },
     }).then((response) => {
-      console.log(response);
+      if(response) {
+        document.location.replace("/dashboard");
+      }
     });
-
-    if (response) {
-      console.log("success");
-    } else {
-      alert(response.statusText);
-    }
   }
 }
 
