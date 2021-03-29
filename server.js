@@ -10,7 +10,7 @@ const router = require("express").Router();
 const sess = {
   secret: 'Its a secret',
   cookie: {
-    maxAge: 60000,
+    maxAge: 300000,
   },
   resave: false,
   saveUninitialized: true,
