@@ -9,7 +9,9 @@ const router = require("express").Router();
 
 const sess = {
   secret: 'Its a secret',
-  cookie: {},
+  cookie: {
+    maxAge: 60000,
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({

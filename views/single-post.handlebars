@@ -2,7 +2,7 @@
   <div class="post">
     <li>
       <div class="post-top">
-        <span class = "post-title">{{post.title}}</span>
+        <h2 class = "post-title">{{post.title}}</h2>
       </div>
       <div class="post-info">
         {{post.content}}
@@ -13,6 +13,7 @@
 </ul>
 {{#if loggedIn}}
 <form class="ui form comment-form">
+  <span>Add a comment:</span>
   <div>
     <textarea name="comment-body" rows="2"></textarea>
   </div>

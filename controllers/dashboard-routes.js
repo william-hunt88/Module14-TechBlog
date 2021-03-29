@@ -44,15 +44,6 @@ router.get("/", (req, res) => {
     });
 });
 
-// router.get("/", (req, res) => {
-//   console.log(req.session)
-//   Post.findAll({
-//     where: {
-//       user_id: req.session.user_id
-//     }
-//   }).then((dbPostData) => res.json(dbPostData))
-// })
-
 router.get("/edit/:id", (req, res) => {
   Post.findByPk(req.params.id, {
     attributes: ["id", "title", "content", "created_at"],
