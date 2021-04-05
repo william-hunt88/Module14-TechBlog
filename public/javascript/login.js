@@ -18,11 +18,10 @@ async function signUpFormHandler(event) {
         password,
       }),
       headers: { "Content-Type": "application/json" },
-    }).then((response) => {
+    })
       if (response) {
         document.location.replace("/dashboard");
       }
-    });
   }
 }
 
