@@ -35,7 +35,6 @@ router.get("/", (req, res) => {
       res.render("dashboard", {
         posts,
         loggedIn: req.session.loggedIn,
-        layout: "dashboard",
       });
     })
     .catch((err) => {

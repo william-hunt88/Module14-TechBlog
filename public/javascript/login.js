@@ -49,6 +49,8 @@ async function loginFormHandler(event) {
       } else {
         alert(response.statusText);
       }
+    }).catch((err) => {
+      console.log(err)
     })
   }
 }
