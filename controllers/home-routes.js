@@ -27,7 +27,6 @@ router.get("/", (req, res) => {
       res.render("homepage", {
         posts,
         loggedIn: req.session.loggedIn,
-        layout: "dashboard",
       });
     } else {
       res.render("homepage", {
@@ -39,7 +38,7 @@ router.get("/", (req, res) => {
 
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect("/login");
     return;
   }
   res.render("login");
@@ -80,7 +79,6 @@ router.get("/post/:id", (req, res) => {
       if(req.session.loggedIn) {
         res.render("single-post", {
           post,
-          layout: "dashboard",
           loggedIn: req.session.loggedIn,
         })
       }else {
